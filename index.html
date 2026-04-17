@@ -1,39 +1,246 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Marcelo Carvalho</title>
-  <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marcelo Carvalho | Data Analyst</title>
+
+    <style>
+        :root {
+            --bg-color: #0b1120;
+            --bg-elevated: #111827;
+            --text-color: #e5e7eb;
+            --accent: #38bdf8;
+            --accent-soft: #1d4ed8;
+            --muted: #9ca3af;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: radial-gradient(circle at top, #1f2937 0, #020617 45%, #000 100%);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            padding: 40px 20px 20px;
+        }
+
+        .header-inner {
+            max-width: 900px;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 999px;
+            overflow: hidden;
+            border: 2px solid var(--accent);
+            flex-shrink: 0;
+            background: #020617;
+        }
+
+        .profile-pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .header-text h1 {
+            margin: 0;
+            font-size: 32px;
+        }
+
+        .header-text p {
+            margin: 6px 0 0;
+            font-size: 16px;
+            color: var(--muted);
+        }
+
+        .tagline {
+            margin-top: 8px;
+            font-size: 14px;
+            color: var(--accent);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 10px 20px 40px;
+        }
+
+        section {
+            background: rgba(15, 23, 42, 0.9);
+            border-radius: 12px;
+            padding: 18px 18px 16px;
+            margin-top: 18px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        section h2 {
+            margin-top: 0;
+            font-size: 18px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent);
+        }
+
+        section h2 span.icon {
+            font-size: 18px;
+        }
+
+        ul, ol {
+            padding-left: 20px;
+            margin: 8px 0 0;
+        }
+
+        li {
+            margin-bottom: 4px;
+        }
+
+        a {
+            color: var(--accent);
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--accent-soft);
+            text-decoration: underline;
+        }
+
+        .contact p {
+            margin: 4px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 10px;
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        @media (max-width: 600px) {
+            .header-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .header-text h1 {
+                font-size: 26px;
+            }
+        }
+    </style>
 </head>
 
-<body style="font-family: Arial; max-width: 800px; margin: auto; padding: 40px; line-height: 1.6;">
+<body>
 
-  <h1>Marcelo Carvalho</h1>
-  <p><b>Data Analyst | Python | Data-Driven Insights</b></p>
+<header>
+    <div class="header-inner">
+        <div class="profile-pic">
+            <!-- Troque "profile.jpg" pelo nome do seu arquivo de foto -->
+            <img src="profile.jpg" alt="Photo of Marcelo Carvalho">
+        </div>
+        <div class="header-text">
+            <h1>Marcelo Carvalho</h1>
+            <p>Data Analyst in Progress · Python · Data-Driven Problem Solving</p>
+            <div class="tagline">From geophysical data to data analysis — learning, building, evolving.</div>
+        </div>
+    </div>
+</header>
 
-  <hr>
+<div class="container">
 
-  <h2>About</h2>
-  <p>
-    I have a strong background in complex data analysis developed through years of work with large-scale geophysical datasets.
-    I am currently transitioning into data analysis and technology, focusing on Python and data-driven problem solving.
-  </p>
+    <section>
+        <h2><span class="icon">👤</span>About Me</h2>
+        <p>
+            I am transitioning into Data Analysis after several years working with large-scale geophysical datasets,
+            where I developed strong analytical thinking, data interpretation skills, and experience handling complex,
+            high‑dimensional data. I am currently focused on Python, data cleaning, exploratory analysis, and visualization,
+            building a solid foundation to work professionally with data. My goal is to combine my scientific background
+            with modern data tools to extract insights, support decision‑making, and solve real‑world problems.
+        </p>
+    </section>
 
-  <h2>Article</h2>
-  <p>
-    (Add your article here when ready)
-  </p>
+    <section>
+        <h2><span class="icon">📚</span>What I'm Studying Now</h2>
+        <ul>
+            <li>Python for data analysis</li>
+            <li>Pandas and NumPy</li>
+            <li>Data cleaning and preprocessing</li>
+            <li>Exploratory Data Analysis (EDA)</li>
+            <li>Data visualization (Matplotlib, Seaborn)</li>
+            <li>Statistics for data analysis</li>
+            <li>Git and GitHub</li>
+            <li>SQL fundamentals</li>
+        </ul>
+    </section>
 
-  <h2>Projects</h2>
-  <ul>
-    <li>Project 1 – (coming soon)</li>
-    <li>Project 2 – (coming soon)</li>
-  </ul>
+    <section>
+        <h2><span class="icon">🧭</span>Learning Roadmap</h2>
+        <ol>
+            <li>Python fundamentals</li>
+            <li>Data manipulation with Pandas</li>
+            <li>Exploratory Data Analysis</li>
+            <li>Data visualization</li>
+            <li>Statistics and probability</li>
+            <li>SQL for data extraction</li>
+            <li>Machine Learning basics</li>
+            <li>Building real projects</li>
+            <li>Deploying and documenting projects</li>
+            <li>Creating a complete data portfolio</li>
+        </ol>
+    </section>
 
-  <h2>Contact</h2>
-  <p>
-    <a href="https://www.linkedin.com/in/marcelojcarvalho">LinkedIn (earth-marcelo)</a><br>
-    <a href="https://github.com/earth-marcelo">GitHub</a>
-  </p>
+    <section>
+        <h2><span class="icon">🛠️</span>Projects (In Development)</h2>
+        <ul>
+            <li><strong>Data Cleaning with Pandas</strong> – in progress</li>
+            <li><strong>Exploratory Data Analysis: Housing Prices</strong> – in progress</li>
+            <li><strong>Time Series Visualization Study</strong> – in progress</li>
+            <li><strong>Environmental Data Correlation Analysis</strong> – planned</li>
+            <li><strong>Geophysical Dataset Exploration</strong> – planned</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2><span class="icon">📊</span>Experience with Data</h2>
+        <p>Before transitioning into Data Analysis, I worked extensively with geophysical datasets, including:</p>
+        <ul>
+            <li>processing and validating large volumes of data</li>
+            <li>quality control and consistency checks</li>
+            <li>interpretation of multi‑dimensional datasets</li>
+            <li>building workflows for data processing</li>
+            <li>decision‑making under uncertainty</li>
+            <li>technical reporting and documentation</li>
+        </ul>
+    </section>
+
+    <section class="contact">
+        <h2><span class="icon">📬</span>Contact</h2>
+        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/earth-marcelo" target="_blank">linkedin.com/in/earth-marcelo</a></p>
+        <p><strong>GitHub:</strong> <a href="https://github.com/earth-marcelo" target="_blank">github.com/earth-marcelo</a></p>
+        <p><strong>Email:</strong> earth.marcelo@gmail.com</p>
+    </section>
+
+</div>
+
+<footer>
+    © 2026 Marcelo Carvalho — GitHub Pages Portfolio
+</footer>
 
 </body>
 </html>
+

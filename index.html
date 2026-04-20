@@ -1,247 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marcelo Carvalho | Data Analyst</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        :root {
-            --bg-color: #0b1120;
-            --bg-elevated: #111827;
-            --text-color: #e5e7eb;
-            --accent: #38bdf8;
-            --accent-soft: #1d4ed8;
-            --muted: #9ca3af;
-        }
+<title>Marcelo Carvalho | Geophysicist & Data Analysis</title>
 
-        * {
-            box-sizing: border-box;
-        }
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #0b1a2a, #0f2d4a);
+    color: #e6edf3;
+    margin: 0;
+    padding: 0;
+}
 
-        body {
-            margin: 0;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            background: radial-gradient(circle at top, #1f2937 0, #020617 45%, #000 100%);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
 
-        header {
-            padding: 40px 20px 20px;
-        }
+.header {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 30px;
+}
 
-        .header-inner {
-            max-width: 900px;
-            margin: auto;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 24px;
-        }
+/* SUA FOTO (mantida e ajustada) */
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 999px;
+    overflow: hidden;
+    border: 2px solid #4da3ff;
+    flex-shrink: 0;
+    background: #020617;
+}
 
-        .profile-pic {
-            width: 120px;
-            height: 120px;
-            border-radius: 999px;
-            overflow: hidden;
-            border: 2px solid var(--accent);
-            flex-shrink: 0;
-            background: #020617;
-        }
+.profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+}
 
-       .profile-pic img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center 20%;
-        }
+h1 {
+    margin: 0;
+}
 
-        .header-text h1 {
-            margin: 0;
-            font-size: 32px;
-        }
+.subtitle {
+    color: #9ecbff;
+}
 
-        .header-text p {
-            margin: 6px 0 0;
-            font-size: 16px;
-            color: var(--muted);
-        }
+.card {
+    background: rgba(255,255,255,0.05);
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255,255,255,0.08);
+}
 
-        .tagline {
-            margin-top: 8px;
-            font-size: 14px;
-            color: var(--accent);
-        }
+h2 {
+    color: #4da3ff;
+}
 
-        .container {
-            max-width: 900px;
-            margin: auto;
-            padding: 10px 20px 40px;
-        }
+ul, ol {
+    padding-left: 20px;
+}
 
-        section {
-            background: rgba(15, 23, 42, 0.9);
-            border-radius: 12px;
-            padding: 18px 18px 16px;
-            margin-top: 18px;
-            border: 1px solid rgba(148, 163, 184, 0.2);
-        }
+a {
+    color: #4da3ff;
+    text-decoration: none;
+}
 
-        section h2 {
-            margin-top: 0;
-            font-size: 18px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--accent);
-        }
-
-        section h2 span.icon {
-            font-size: 18px;
-        }
-
-        ul, ol {
-            padding-left: 20px;
-            margin: 8px 0 0;
-        }
-
-        li {
-            margin-bottom: 4px;
-        }
-
-        a {
-            color: var(--accent);
-            font-weight: 500;
-            text-decoration: none;
-        }
-
-        a:hover {
-            color: var(--accent-soft);
-            text-decoration: underline;
-        }
-
-        .contact p {
-            margin: 4px 0;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            margin-top: 10px;
-            font-size: 12px;
-            color: var(--muted);
-        }
-
-        @media (max-width: 600px) {
-            .header-inner {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .header-text h1 {
-                font-size: 26px;
-            }
-        }
-    </style>
+a:hover {
+    text-decoration: underline;
+}
+</style>
 </head>
 
 <body>
 
-<header>
-    <div class="header-inner">
-        <div class="profile-pic">
-            <!-- Troque "profile.jpg" pelo nome do seu arquivo de foto -->
-            <img src="profile.png" alt="Photo of Marcelo Carvalho">
-        </div>
-        <div class="header-text">
-            <h1>Marcelo Carvalho</h1>
-            <p>Data Analyst in Progress · Python · Data-Driven Problem Solving</p>
-            <div class="tagline">From geophysical data to data analysis — learning, building, evolving.</div>
-        </div>
-    </div>
-</header>
-
 <div class="container">
 
-    <section>
-        <h2><span class="icon">👤</span>About Me</h2>
+    <div class="header">
+        <div class="profile-pic">
+            <img src="profile.png" alt="Profile">
+        </div>
+
+        <div>
+            <h1>Marcelo Carvalho</h1>
+            <p class="subtitle">Geophysicist | Data Analysis | Scientific Computing</p>
+            <p>
+            25+ years working with large-scale geophysical data, now applying analytical
+            and data science techniques to extract insights and solve real-world problems.
+            </p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>About Me</h2>
         <p>
-            I am transitioning into Data Analysis after several years working with large-scale geophysical datasets,
-            where I developed strong analytical thinking, data interpretation skills, and experience handling complex,
-            high‑dimensional data. I am currently focused on Python, data cleaning, exploratory analysis, and visualization,
-            building a solid foundation to work professionally with data. My goal is to combine my scientific background
-            with modern data tools to extract insights, support decision‑making, and solve real‑world problems.
+        I am a geophysicist with over two decades of experience working with large-scale
+        and complex geophysical datasets. Throughout my career, I have developed strong
+        analytical thinking, data interpretation skills, and experience handling
+        high-dimensional data.
         </p>
-    </section>
+        <p>
+        I apply these skills using Python-based tools to perform data analysis,
+        visualization, and exploratory studies. My goal is to combine my scientific
+        background with modern data methodologies to generate insights, support
+        decision-making, and solve real-world problems.
+        </p>
+    </div>
 
-    <section>
-        <h2><span class="icon">📚</span>What I'm Studying Now</h2>
+    <div class="card">
+        <h2>Core Skills</h2>
         <ul>
-            <li>Python for data analysis</li>
-            <li>Pandas and NumPy</li>
-            <li>Data cleaning and preprocessing</li>
+            <li>Python (Pandas, NumPy)</li>
+            <li>Data Cleaning and Preprocessing</li>
             <li>Exploratory Data Analysis (EDA)</li>
-            <li>Data visualization (Matplotlib, Seaborn)</li>
-            <li>Statistics for data analysis</li>
+            <li>Data Visualization (Matplotlib, Seaborn)</li>
+            <li>Statistical Analysis</li>
+            <li>SQL Fundamentals</li>
             <li>Git and GitHub</li>
-            <li>SQL fundamentals</li>
         </ul>
-    </section>
+    </div>
 
-    <section>
-        <h2><span class="icon">🧭</span>Learning Roadmap</h2>
+    <div class="card">
+        <h2>Technical Focus</h2>
         <ol>
-            <li>Python fundamentals</li>
-            <li>Data manipulation with Pandas</li>
-            <li>Exploratory Data Analysis</li>
-            <li>Data visualization</li>
-            <li>Statistics and probability</li>
-            <li>SQL for data extraction</li>
-            <li>Machine Learning basics</li>
-            <li>Building real projects</li>
-            <li>Deploying and documenting projects</li>
-            <li>Creating a complete data portfolio</li>
+            <li>Advanced Python for Data Analysis</li>
+            <li>Statistical Modeling</li>
+            <li>Machine Learning Fundamentals</li>
+            <li>Time Series Analysis</li>
+            <li>Geospatial Data Analysis</li>
+            <li>Building End-to-End Data Projects</li>
         </ol>
-    </section>
+    </div>
 
-    <section>
-        <h2><span class="icon">🛠️</span>Projects (In Development)</h2>
+    <div class="card">
+        <h2>Selected Projects</h2>
         <ul>
-            <li><strong>Data Cleaning with Pandas</strong> – in progress</li>
-            <li><strong>Exploratory Data Analysis: Housing Prices</strong> – in progress</li>
-            <li><strong>Time Series Visualization Study</strong> – in progress</li>
-            <li><strong>Environmental Data Correlation Analysis</strong> – planned</li>
-            <li><strong>Geophysical Dataset Exploration</strong> – planned</li>
+            <li>
+                <strong>Bouguer Gravity Analysis</strong><br>
+                Interactive visualization of Bouguer anomalies focused on the Brazilian
+                continental margin, aiming to identify density variations and geological structures.
+            </li>
+            <br>
+            <li>
+                <strong>Exploratory Data Analysis – Housing Prices</strong><br>
+                Pattern identification and visualization in real estate datasets.
+            </li>
+            <br>
+            <li>
+                <strong>Time Series Visualization Study</strong><br>
+                Analysis of temporal datasets to understand trends and variability.
+            </li>
+            <br>
+            <li>
+                <strong>Environmental Data Correlation Analysis</strong>
+            </li>
         </ul>
-    </section>
+    </div>
 
-    <section>
-        <h2><span class="icon">📊</span>Experience with Data</h2>
-        <p>Before transitioning into Data Analysis, I worked extensively with geophysical datasets, including:</p>
+    <div class="card">
+        <h2>Experience with Data</h2>
+        <p>Extensive experience working with geophysical datasets, including:</p>
         <ul>
-            <li>processing and validating large volumes of data</li>
-            <li>quality control and consistency checks</li>
-            <li>interpretation of multi‑dimensional datasets</li>
-            <li>building workflows for data processing</li>
-            <li>decision‑making under uncertainty</li>
-            <li>technical reporting and documentation</li>
+            <li>Processing and validating large volumes of data</li>
+            <li>Quality control and consistency checks</li>
+            <li>Interpretation of multi-dimensional datasets</li>
+            <li>Building data processing workflows</li>
+            <li>Decision-making under uncertainty</li>
+            <li>Technical reporting and documentation</li>
         </ul>
-    </section>
+    </div>
 
-    <section class="contact">
-        <h2><span class="icon">📬</span>Contact</h2>
-        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/earth-marcelo" target="_blank">linkedin.com/in/earth-marcelo</a></p>
-        <p><strong>GitHub:</strong> <a href="https://github.com/earth-marcelo" target="_blank">github.com/earth-marcelo</a></p>
+    <div class="card">
+        <h2>Contact</h2>
+        <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/earth-marcelo">linkedin.com/in/earth-marcelo</a></p>
+        <p><strong>GitHub:</strong> <a href="https://github.com/earth-marcelo">github.com/earth-marcelo</a></p>
         <p><strong>Email:</strong> earth.marcelo@gmail.com</p>
-    </section>
+    </div>
 
 </div>
 
-<footer>
-    © 2026 Marcelo Carvalho — GitHub Pages Portfolio
-</footer>
-
 </body>
 </html>
-

@@ -12,31 +12,31 @@ body {
     background: linear-gradient(135deg, #0b1a2a, #0f2d4a);
     color: #e6edf3;
     margin: 0;
-    padding: 0;
 }
 
+/* container */
 .container {
-    max-width: 900px;
+    max-width: 1100px;
     margin: auto;
-    padding: 20px;
+    padding: 40px 20px;
 }
 
+/* header */
 .header {
     display: flex;
     align-items: center;
-    gap: 24px;
-    margin-bottom: 30px;
+    gap: 30px;
+    margin-bottom: 40px;
 }
 
-/* SUA FOTO (mantida e ajustada) */
+/* foto */
 .profile-pic {
-    width: 120px;
-    height: 120px;
+    width: 130px;
+    height: 130px;
     border-radius: 999px;
     overflow: hidden;
-    border: 2px solid #4da3ff;
+    border: 3px solid #4da3ff;
     flex-shrink: 0;
-    background: #020617;
 }
 
 .profile-pic img {
@@ -46,20 +46,44 @@ body {
     object-position: center 20%;
 }
 
+/* texto topo */
 h1 {
     margin: 0;
+    font-size: 34px;
 }
 
 .subtitle {
     color: #9ecbff;
+    font-size: 18px;
+    margin: 5px 0;
 }
 
+/* cards */
 .card {
-    background: rgba(255,255,255,0.05);
-    padding: 20px;
-    border-radius: 12px;
-    margin-bottom: 20px;
-    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.04);
+    padding: 24px;
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.06);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    border-color: #4da3ff;
+}
+
+/* destaque */
+.highlight {
+    border: 1px solid #4da3ff;
+    background: rgba(77,163,255,0.08);
+    margin-bottom: 30px;
+}
+
+/* grid */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
 }
 
 h2 {
@@ -70,13 +94,26 @@ ul, ol {
     padding-left: 20px;
 }
 
-a {
+/* contato */
+.contact a {
     color: #4da3ff;
     text-decoration: none;
 }
 
-a:hover {
+.contact a:hover {
     text-decoration: underline;
+}
+
+/* responsivo */
+@media (max-width: 800px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .header {
+        flex-direction: column;
+        text-align: center;
+    }
 }
 </style>
 </head>
@@ -85,9 +122,10 @@ a:hover {
 
 <div class="container">
 
+    <!-- HEADER -->
     <div class="header">
         <div class="profile-pic">
-            <img src="profile.png" alt="Profile">
+            <img src="profile.png">
         </div>
 
         <div>
@@ -100,86 +138,72 @@ a:hover {
         </div>
     </div>
 
-    <div class="card">
-        <h2>About Me</h2>
+    <!-- PROJETO DESTAQUE -->
+    <div class="card highlight">
+        <h2>Featured Project</h2>
+        <p><strong>Bouguer Gravity Analysis</strong></p>
         <p>
-        I am a geophysicist with over two decades of experience working with large-scale
-        and complex geophysical datasets. Throughout my career, I have developed strong
-        analytical thinking, data interpretation skills, and experience handling
-        high-dimensional data.
-        </p>
-        <p>
-        I apply these skills using Python-based tools to perform data analysis,
-        visualization, and exploratory studies. My goal is to combine my scientific
-        background with modern data methodologies to generate insights, support
-        decision-making, and solve real-world problems.
+        Interactive visualization of Bouguer anomalies focused on the Brazilian
+        continental margin, highlighting density variations and geological structures.
         </p>
     </div>
 
-    <div class="card">
-        <h2>Core Skills</h2>
-        <ul>
-            <li>Python (Pandas, NumPy)</li>
-            <li>Data Cleaning and Preprocessing</li>
-            <li>Exploratory Data Analysis (EDA)</li>
-            <li>Data Visualization (Matplotlib, Seaborn)</li>
-            <li>Statistical Analysis</li>
-            <li>SQL Fundamentals</li>
-            <li>Git and GitHub</li>
-        </ul>
+    <!-- GRID -->
+    <div class="grid">
+
+        <div class="card">
+            <h2>About Me</h2>
+            <p>
+            I am a geophysicist with over two decades of experience working with large-scale
+            and complex geophysical datasets. I have developed strong analytical thinking,
+            data interpretation skills, and experience handling high-dimensional data.
+            </p>
+            <p>
+            I apply these skills using Python-based tools for data analysis and visualization,
+            combining scientific knowledge with modern data methodologies.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>Core Skills</h2>
+            <ul>
+                <li>Python (Pandas, NumPy)</li>
+                <li>Data Cleaning and Preprocessing</li>
+                <li>Exploratory Data Analysis</li>
+                <li>Data Visualization</li>
+                <li>Statistical Analysis</li>
+                <li>SQL</li>
+                <li>Git / GitHub</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Experience with Data</h2>
+            <ul>
+                <li>Processing large datasets</li>
+                <li>Quality control and validation</li>
+                <li>Multi-dimensional data interpretation</li>
+                <li>Workflow development</li>
+                <li>Decision-making under uncertainty</li>
+                <li>Technical reporting</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Technical Focus</h2>
+            <ol>
+                <li>Advanced Python</li>
+                <li>Statistical Modeling</li>
+                <li>Machine Learning</li>
+                <li>Time Series</li>
+                <li>Geospatial Analysis</li>
+            </ol>
+        </div>
+
     </div>
 
-    <div class="card">
-        <h2>Technical Focus</h2>
-        <ol>
-            <li>Advanced Python for Data Analysis</li>
-            <li>Statistical Modeling</li>
-            <li>Machine Learning Fundamentals</li>
-            <li>Time Series Analysis</li>
-            <li>Geospatial Data Analysis</li>
-            <li>Building End-to-End Data Projects</li>
-        </ol>
-    </div>
-
-    <div class="card">
-        <h2>Selected Projects</h2>
-        <ul>
-            <li>
-                <strong>Bouguer Gravity Analysis</strong><br>
-                Interactive visualization of Bouguer anomalies focused on the Brazilian
-                continental margin, aiming to identify density variations and geological structures.
-            </li>
-            <br>
-            <li>
-                <strong>Exploratory Data Analysis – Housing Prices</strong><br>
-                Pattern identification and visualization in real estate datasets.
-            </li>
-            <br>
-            <li>
-                <strong>Time Series Visualization Study</strong><br>
-                Analysis of temporal datasets to understand trends and variability.
-            </li>
-            <br>
-            <li>
-                <strong>Environmental Data Correlation Analysis</strong>
-            </li>
-        </ul>
-    </div>
-
-    <div class="card">
-        <h2>Experience with Data</h2>
-        <p>Extensive experience working with geophysical datasets, including:</p>
-        <ul>
-            <li>Processing and validating large volumes of data</li>
-            <li>Quality control and consistency checks</li>
-            <li>Interpretation of multi-dimensional datasets</li>
-            <li>Building data processing workflows</li>
-            <li>Decision-making under uncertainty</li>
-            <li>Technical reporting and documentation</li>
-        </ul>
-    </div>
-
-    <div class="card">
+    <!-- CONTATO -->
+    <div class="card contact" style="margin-top:30px;">
         <h2>Contact</h2>
         <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/earth-marcelo">linkedin.com/in/earth-marcelo</a></p>
         <p><strong>GitHub:</strong> <a href="https://github.com/earth-marcelo">github.com/earth-marcelo</a></p>

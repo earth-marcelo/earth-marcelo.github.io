@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marcelo Carvalho — Geophysicist & Data Scientist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #080c10;
+  --bg2: #0e1520;
+  --bg3: #131c28;
+  --text: #dde4ee;
+  --muted: #6b7a8d;
+  --accent: #38e8a8;
+  --accent2: #4aa8f4;
+  --border: rgba(255,255,255,0.06);
+  --card: rgba(255,255,255,0.025);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(56,232,168,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56,232,168,0.025) 1px, transparent 1px);
+  background-size: 64px 64px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  top: -300px; right: -300px;
+  width: 800px; height: 800px;
+  background: radial-gradient(circle, rgba(74,168,244,0.06) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.wrap {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 100;
+  backdrop-filter: blur(24px);
+  background: rgba(8,12,16,0.85);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+  max-width: 860px; margin: 0 auto; padding: 0 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 58px;
+}
+.nav-logo {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.8rem; color: var(--accent);
+  text-decoration: none; letter-spacing: 0.04em;
+}
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  font-family: 'DM Mono', monospace; font-size: 0.72rem;
+  color: var(--muted); text-decoration: none;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--text); }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  padding-top: 58px;
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4rem;
+  align-items: center;
+  width: 100%;
+}
+
+.tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem; color: var(--accent);
+  letter-spacing: 0.14em; text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  display: flex; align-items: center; gap: 0.75rem;
+}
+.tag::before {
+  content: ''; display: inline-block;
+  width: 28px; height: 1px; background: var(--accent);
+}
+
+h1 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.6rem, 6vw, 4.8rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  margin-bottom: 1.5rem;
+}
+h1 em { color: var(--accent); font-style: normal; display: block; }
+
+.hero-desc {
+  font-size: 1rem; color: var(--muted);
+  max-width: 440px; margin-bottom: 2.5rem;
+  line-height: 1.85;
+}
+.hero-desc strong { color: var(--text); font-weight: 500; }
+
+.cta-row { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+.btn {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  padding: 0.65rem 1.35rem;
+  border-radius: 3px;
+  font-family: 'DM Mono', monospace; font-size: 0.72rem;
+  letter-spacing: 0.05em; text-decoration: none;
+  transition: all 0.18s; cursor: pointer; border: none;
+}
+.btn-primary { background: var(--accent); color: #080c10; }
+.btn-primary:hover { background: #52f0ba; transform: translateY(-1px); }
+.btn-ghost {
+  background: transparent; color: var(--muted);
+  border: 1px solid var(--border);
+}
+.btn-ghost:hover { border-color: rgba(255,255,255,0.18); color: var(--text); }
+
+/* AVATAR */
+.avatar-wrap {
+  position: relative; flex-shrink: 0;
+}
+.avatar-ring {
+  width: 180px; height: 180px;
+  border-radius: 50%;
+  border: 1px solid rgba(56,232,168,0.3);
+  padding: 6px;
+}
+.avatar-ring img {
+  width: 100%; height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+  filter: grayscale(20%);
+}
+.avatar-dot {
+  position: absolute; bottom: 14px; right: 14px;
+  width: 14px; height: 14px;
+  background: var(--accent); border-radius: 50%;
+  border: 2px solid var(--bg);
+}
+
+/* SOCIAL */
+.social-row {
+  margin-top: 2.5rem;
+  display: flex; align-items: center; gap: 1.25rem;
+  flex-wrap: wrap;
+}
+.social-row .label {
+  font-family: 'DM Mono', monospace; font-size: 0.62rem;
+  color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase;
+}
+.social-divider { width: 1px; height: 18px; background: var(--border); }
+.social-row a {
+  color: var(--muted); text-decoration: none;
+  font-size: 0.82rem; display: flex; align-items: center; gap: 0.4rem;
+  transition: color 0.2s; font-family: 'DM Mono', monospace; font-size: 0.72rem;
+}
+.social-row a:hover { color: var(--accent); }
+.social-row svg { flex-shrink: 0; }
+
+/* ── SECTIONS ── */
+section { padding: 5.5rem 0; border-top: 1px solid var(--border); }
+
+.sec-label {
+  font-family: 'DM Mono', monospace; font-size: 0.68rem;
+  color: var(--accent); letter-spacing: 0.14em; text-transform: uppercase;
+  margin-bottom: 0.6rem;
+  display: flex; align-items: center; gap: 0.75rem;
+}
+.sec-label::after {
+  content: ''; flex: 1; height: 1px; background: var(--border); max-width: 180px;
+}
+
+h2 {
+  font-family: 'Syne', sans-serif; font-weight: 700;
+  font-size: clamp(1.7rem, 3.5vw, 2.5rem);
+  letter-spacing: -0.03em; margin-bottom: 0.4rem; line-height: 1.1;
+}
+.sec-sub { color: var(--muted); font-size: 0.95rem; margin-bottom: 3rem; }
+
+/* ── ABOUT ── */
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 3rem; align-items: start;
+}
+.about-text p { color: var(--muted); margin-bottom: 1rem; font-size: 0.95rem; line-height: 1.8; }
+.about-text p strong { color: var(--text); font-weight: 500; }
+
+.skills-wrap { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.5rem; }
+.pill {
+  font-family: 'DM Mono', monospace; font-size: 0.68rem;
+  padding: 0.3rem 0.8rem; border-radius: 2px;
+  letter-spacing: 0.03em; border: 1px solid;
+}
+.pill-g { background: rgba(56,232,168,0.06); border-color: rgba(56,232,168,0.22); color: var(--accent); }
+.pill-b { background: rgba(74,168,244,0.06); border-color: rgba(74,168,244,0.22); color: var(--accent2); }
+.pill-n { background: rgba(255,255,255,0.03); border-color: var(--border); color: var(--muted); }
+
+.stats { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+.stat {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 4px; padding: 1.2rem 1.1rem;
+}
+.stat-n {
+  font-family: 'Syne', sans-serif; font-size: 1.9rem; font-weight: 800;
+  color: var(--accent); line-height: 1; margin-bottom: 0.25rem;
+}
+.stat-l { font-size: 0.76rem; color: var(--muted); font-family: 'DM Mono', monospace; line-height: 1.4; }
+
+/* ── PROJECTS ── */
+.proj-list {
+  border: 1px solid var(--border); border-radius: 5px; overflow: hidden;
+}
+.proj {
+  background: var(--card); padding: 1.6rem 1.8rem;
+  display: grid; grid-template-columns: 1fr auto;
+  gap: 1rem; align-items: start;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none; color: inherit;
+  transition: background 0.18s;
+}
+.proj:last-child { border-bottom: none; }
+.proj:hover { background: rgba(255,255,255,0.04); }
+.proj-num { font-family: 'DM Mono', monospace; font-size: 0.62rem; color: var(--muted); margin-bottom: 0.4rem; }
+.proj-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.05rem; margin-bottom: 0.35rem; }
+.proj-desc { font-size: 0.85rem; color: var(--muted); max-width: 520px; line-height: 1.65; }
+.proj-tags { display: flex; gap: 0.35rem; margin-top: 0.65rem; flex-wrap: wrap; }
+.proj-tag {
+  font-family: 'DM Mono', monospace; font-size: 0.62rem;
+  padding: 0.18rem 0.55rem; border-radius: 2px;
+  background: rgba(56,232,168,0.06); color: var(--accent);
+  border: 1px solid rgba(56,232,168,0.14);
+}
+.proj-arrow { font-size: 1.1rem; color: var(--muted); transition: color 0.18s, transform 0.18s; }
+.proj:hover .proj-arrow { color: var(--accent); transform: translate(3px, -3px); }
+
+/* ── CONTACT ── */
+.contact-box {
+  background: var(--bg3); border: 1px solid var(--border);
+  border-radius: 5px; padding: 2.5rem 3rem;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;
+}
+.contact-intro p { color: var(--muted); font-size: 0.95rem; line-height: 1.8; margin-bottom: 1.5rem; }
+.contact-links { display: flex; flex-direction: column; gap: 0.75rem; }
+.clink {
+  display: flex; align-items: center; gap: 0.85rem;
+  text-decoration: none; color: var(--muted);
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--border); border-radius: 4px;
+  transition: all 0.18s; font-size: 0.85rem;
+}
+.clink:hover { border-color: rgba(56,232,168,0.28); color: var(--text); background: rgba(56,232,168,0.04); }
+.clink-icon {
+  width: 30px; height: 30px;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 4px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.clink-lbl { font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.1rem; }
+.clink-val { font-size: 0.82rem; color: var(--text); }
+
+/* ── FOOTER ── */
+footer { border-top: 1px solid var(--border); padding: 1.8rem 0; text-align: center; }
+footer p { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--muted); letter-spacing: 0.05em; }
+footer span { color: var(--accent); }
+
+/* ── WAVE DECO ── */
+.wave-deco { position: absolute; right: -60px; top: 50%; transform: translateY(-50%); opacity: 0.12; width: 300px; pointer-events: none; }
+@keyframes seismic { to { stroke-dashoffset: -800; } }
+.wave-deco path { stroke-dasharray: 6 3; animation: seismic 14s linear infinite; }
+
+/* ── FADE IN ── */
+@keyframes up { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.hero-text > * { animation: up 0.65s ease both; }
+.hero-text > *:nth-child(1) { animation-delay: 0.1s; }
+.hero-text > *:nth-child(2) { animation-delay: 0.2s; }
+.hero-text > *:nth-child(3) { animation-delay: 0.3s; }
+.hero-text > *:nth-child(4) { animation-delay: 0.4s; }
+.hero-text > *:nth-child(5) { animation-delay: 0.5s; }
+.avatar-wrap { animation: up 0.65s 0.3s ease both; }
+
+@media (max-width: 640px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .avatar-wrap { display: none; }
+  .about-grid, .contact-box { grid-template-columns: 1fr; gap: 2rem; }
+  .nav-links { display: none; }
+  .wave-deco { display: none; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">earth-marcelo.com</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-inner">
+      <div class="hero-text" style="position:relative;">
+        <div class="tag">Geophysicist → Data Scientist</div>
+        <h1>
+          Marcelo
+          <em>Carvalho</em>
+        </h1>
+        <p class="hero-desc">
+          <strong>25+ years reading the Earth's data.</strong> Now applying that same scientific rigour to machine learning, geospatial analysis, and data-driven problem solving.
+        </p>
+        <div class="cta-row">
+          <a href="#projects" class="btn btn-primary">View projects →</a>
+          <a href="mailto:earth.marcelo@gmail.com" class="btn btn-ghost">Get in touch</a>
+        </div>
+        <div class="social-row">
+          <span class="label">Find me</span>
+          <div class="social-divider"></div>
+          <a href="https://github.com/earth-marcelo" target="_blank">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+            GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/earth-marcelo" target="_blank">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+          <a href="mailto:earth.marcelo@gmail.com">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+            Email
+          </a>
+        </div>
+
+        <!-- seismic wave -->
+        <svg class="wave-deco" viewBox="0 0 300 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M150 0 L150 60 L150 80 L140 98 L128 122 L116 148 L104 168 L92 174 L80 168 L68 150 L56 128 L44 106 L32 88 L20 80 L8 78 L0 82 L0 360" stroke="#38e8a8" stroke-width="1.5" fill="none"/>
+          <path d="M0 160 L20 158 L40 154 L60 148 L80 138 L100 126 L120 118 L140 116 L160 120 L180 130 L200 144 L220 156 L240 162 L260 160 L280 155 L300 150" stroke="#4aa8f4" stroke-width="1" fill="none" style="animation-duration:20s;" opacity="0.5"/>
+        </svg>
+      </div>
+
+      <div class="avatar-wrap">
+        <div class="avatar-ring">
+          <img src="profile.png" alt="Marcelo Carvalho">
+        </div>
+        <div class="avatar-dot"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="sec-label">01 — About</div>
+    <h2>Earth science<br>meets data science</h2>
+    <p class="sec-sub">A rare combination of deep scientific expertise and modern analytical tools.</p>
+
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          I'm a geophysicist with <strong>over 25 years of experience</strong> working with large-scale, complex geophysical datasets — seismic, gravimetric, electromagnetic, and more.
+        </p>
+        <p>
+          This isn't a career change, it's an <strong>evolution</strong>. The analytical thinking, uncertainty quantification, and high-dimensional data interpretation I've practised for decades are exactly what data science demands.
+        </p>
+        <p>
+          Currently building expertise in <strong>Python, machine learning, and geospatial data visualisation</strong> — bridging the gap between Earth science and modern data-driven workflows.
+        </p>
+        <div class="skills-wrap">
+          <span class="pill pill-g">Python</span>
+          <span class="pill pill-g">Pandas</span>
+          <span class="pill pill-g">NumPy</span>
+          <span class="pill pill-g">Scikit-learn</span>
+          <span class="pill pill-b">GeoPandas</span>
+          <span class="pill pill-b">QGIS</span>
+          <span class="pill pill-b">GMT</span>
+          <span class="pill pill-n">SQL</span>
+          <span class="pill pill-n">Jupyter</span>
+          <span class="pill pill-n">Git</span>
+          <span class="pill pill-n">Statistical Modelling</span>
+          <span class="pill pill-n">Time Series</span>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-n">25+</div>
+          <div class="stat-l">years with large-scale geophysical data</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">geo</div>
+          <div class="stat-l">spatial analysis as core speciality</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">ML</div>
+          <div class="stat-l">applied to Earth science problems</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">🌎</div>
+          <div class="stat-l">Brazil · global datasets</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-label">02 — Projects</div>
+    <h2>Work &<br>repositories</h2>
+    <p class="sec-sub">Applying scientific thinking to real data problems.</p>
+
+    <div class="proj-list">
+
+      <a href="https://github.com/earth-marcelo" target="_blank" class="proj">
+        <div>
+          <div class="proj-num">001</div>
+          <div class="proj-title">Bouguer Gravity Analysis</div>
+          <p class="proj-desc">Interactive visualisation of Bouguer anomalies focused on the Brazilian continental margin, highlighting density variations and geological structures.</p>
+          <div class="proj-tags">
+            <span class="proj-tag">Python</span>
+            <span class="proj-tag">NumPy</span>
+            <span class="proj-tag">Matplotlib</span>
+            <span class="proj-tag">Geophysics</span>
+          </div>
+        </div>
+        <div class="proj-arrow">↗</div>
+      </a>
+
+      <a href="https://github.com/earth-marcelo" target="_blank" class="proj">
+        <div>
+          <div class="proj-num">002</div>
+          <div class="proj-title">Geospatial Mapping with GeoPandas</div>
+          <p class="proj-desc">Visualisation and analysis of geospatial data applied to regional geology. Integration of shapefiles, gravimetric data, and thematic maps of the Brazilian territory.</p>
+          <div class="proj-tags">
+            <span class="proj-tag">GeoPandas</span>
+            <span class="proj-tag">Folium</span>
+            <span class="proj-tag">QGIS</span>
+            <span class="proj-tag">Geospatial</span>
+          </div>
+        </div>
+        <div class="proj-arrow">↗</div>
+      </a>
+
+      <a href="https://github.com/earth-marcelo" target="_blank" class="proj">
+        <div>
+          <div class="proj-num">003</div>
+          <div class="proj-title">ML Applied to Geophysical Exploration</div>
+          <p class="proj-desc">Classification and clustering algorithms applied to geophysical survey data to identify patterns and anomalies. Built with Scikit-learn and interactive Plotly visualisations.</p>
+          <div class="proj-tags">
+            <span class="proj-tag">Scikit-learn</span>
+            <span class="proj-tag">Clustering</span>
+            <span class="proj-tag">Plotly</span>
+            <span class="proj-tag">Machine Learning</span>
+          </div>
+        </div>
+        <div class="proj-arrow">↗</div>
+      </a>
+
+      <a href="https://github.com/earth-marcelo" target="_blank" class="proj">
+        <div>
+          <div class="proj-num">004</div>
+          <div class="proj-title">Environmental & Climate Time Series EDA</div>
+          <p class="proj-desc">Exploratory analysis of climate time series: trend detection, seasonality decomposition, and anomaly identification using Pandas and statsmodels.</p>
+          <div class="proj-tags">
+            <span class="proj-tag">Pandas</span>
+            <span class="proj-tag">Time Series</span>
+            <span class="proj-tag">Statsmodels</span>
+            <span class="proj-tag">EDA</span>
+          </div>
+        </div>
+        <div class="proj-arrow">↗</div>
+      </a>
+
+    </div>
+    <div style="margin-top:1.25rem; text-align:right;">
+      <a href="https://github.com/earth-marcelo" target="_blank" class="btn btn-ghost">All repositories on GitHub →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="sec-label">03 — Contact</div>
+    <h2>Let's talk</h2>
+    <p class="sec-sub">Open to data science roles, collaborations, and interesting problems.</p>
+
+    <div class="contact-box">
+      <div class="contact-intro">
+        <p>
+          If you're looking for someone who brings <strong>deep scientific discipline</strong> to data problems — or just want to talk about geophysics and machine learning — reach out.
+        </p>
+        <a href="mailto:earth.marcelo@gmail.com" class="btn btn-primary">Send an email →</a>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:earth.marcelo@gmail.com" class="clink">
+          <div class="clink-icon">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38e8a8" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+          </div>
+          <div>
+            <div class="clink-lbl">Email</div>
+            <div class="clink-val">earth.marcelo@gmail.com</div>
+          </div>
+        </a>
+        <a href="https://github.com/earth-marcelo" target="_blank" class="clink">
+          <div class="clink-icon">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="#38e8a8"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          </div>
+          <div>
+            <div class="clink-lbl">GitHub</div>
+            <div class="clink-val">github.com/earth-marcelo</div>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/in/earth-marcelo" target="_blank" class="clink">
+          <div class="clink-icon">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="#38e8a8"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </div>
+          <div>
+            <div class="clink-lbl">LinkedIn</div>
+            <div class="clink-val">linkedin.com/in/earth-marcelo</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>© 2025 <span>Marcelo Carvalho</span> · earth-marcelo.com</p>
+  </div>
+</footer>
+
+</body>
+</html>
